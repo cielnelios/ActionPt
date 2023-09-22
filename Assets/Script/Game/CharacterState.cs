@@ -47,6 +47,9 @@ public class CharacterState : MonoBehaviour
     public PlayerControl playerControl;
     [SerializeField] private Rigidbody _playerRigidbody;
 
+    [Header("효과음")]
+    [SerializeField] private AudioSource _thisAudioSource;
+
     // 세팅을 진행한다. 시작하면 딕셔너리에 enum과 state를 매칭시켜서 저장
     private CharacterStateContext _characterStateContext;
 
@@ -65,6 +68,7 @@ public class CharacterState : MonoBehaviour
         ICharacterStateDictionary.Add(EnumICharacterState._idleState, this.gameObject.AddComponent<CharacterIdleState>());
         ICharacterStateDictionary.Add(EnumICharacterState._moveState, this.gameObject.AddComponent<CharacterMoveState>());
         ICharacterStateDictionary.Add(EnumICharacterState._jumpState, this.gameObject.AddComponent<CharacterJumpState>());
+        ICharacterStateDictionary.Add(EnumICharacterState._attackState, this.gameObject.AddComponent<CharacterAttackState>());
         
         this.isAllowMove = true;
 
@@ -210,6 +214,21 @@ public class CharacterState : MonoBehaviour
                     _characterState._characterStateContext.CharacterStateTransition(_characterState.ICharacterStateDictionary[EnumICharacterState._idleState]);
                 }
             }
+        }
+    }
+
+    // 공격
+    public class CharacterAttackState : MonoBehaviour, ICharacterState
+    {
+        private CharacterState _characterState;
+
+        public void SetStateValue(CharacterState characterState)
+        {
+            if (!_characterState) _characterState = characterState;
+            Debug.Log("attack");
+
+            _characterState._thisAudioSource.Play();
+            _characterState.thisGameObjectModelAnimation.SetTrigger("Attack");
         }
     }
 }

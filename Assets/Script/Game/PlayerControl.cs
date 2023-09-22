@@ -69,4 +69,12 @@ public class PlayerControl : MonoBehaviour
     {
         return;
     }
+
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        if (context.action.phase == InputActionPhase.Performed)
+        {
+            _setStateAction(CharacterState.EnumICharacterState._attackState);
+        }
+    }
 }
