@@ -84,11 +84,13 @@ public class CharacterAnimationVoice : MonoBehaviour
 
     void AttackStart()
     {
+        _punch.gameObject.SetActive(true);
         _punch.setAttackReady();
     }
 
     void AttackEnd()
     {
+        _punch.gameObject.SetActive(false);
         _punch.setAttackExit();
     }
 }
