@@ -47,8 +47,8 @@ public class CharacterState : MonoBehaviour
     public PlayerControl playerControl;
     [SerializeField] private Rigidbody _playerRigidbody;
 
-    [Header("효과음")]
-    [SerializeField] private AudioSource _thisAudioSource;
+    //[Header("효과음")]
+    //[SerializeField] private AudioSource _thisAudioSource;
 
     // 세팅을 진행한다. 시작하면 딕셔너리에 enum과 state를 매칭시켜서 저장
     private CharacterStateContext _characterStateContext;
@@ -225,9 +225,9 @@ public class CharacterState : MonoBehaviour
         public void SetStateValue(CharacterState characterState)
         {
             if (!_characterState) _characterState = characterState;
-            Debug.Log("attack");
+            //Debug.Log("attack");
 
-            _characterState._thisAudioSource.Play();
+            //_characterState._thisAudioSource.Play();
             _characterState.thisGameObjectModelAnimation.SetTrigger("Attack");
         }
     }

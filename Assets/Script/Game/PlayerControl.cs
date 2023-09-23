@@ -8,6 +8,8 @@ public class PlayerControl : MonoBehaviour
     public float TurnDirection { get; private set; }
     public InputAction MoveAction { get; private set; }
     public CharacterState characterState;
+    // GM 처리
+    [SerializeField] private Animator _enemyAnimator;
 
     // https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/manual/Interactions.html
     //context.action.phase
@@ -67,7 +69,11 @@ public class PlayerControl : MonoBehaviour
     //인벤토리 열기
     public void OnInventory(InputAction.CallbackContext context)
     {
-        return;
+        Debug.Log("i");
+        if (context.action.phase == InputActionPhase.Performed)
+        {
+            _enemyAnimator.SetTrigger("Damaged");
+        }
     }
 
     public void OnAttack(InputAction.CallbackContext context)
