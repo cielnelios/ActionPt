@@ -6,14 +6,16 @@ public class CharacterAnimationVoice : MonoBehaviour
 {
     [Header("효과음")]
     [SerializeField] private AudioSource _thisAudioSource;
-    [SerializeField] private Transform _thisTransform;
     [Header("다운 모션 회전 보정")] // 스탠딩 상태의 피격을 뒤로 눕혀야 하기 때문
+    [SerializeField] private Transform _thisTransform;
     [SerializeField] private float _angle;  // 뒤로 90도
     [SerializeField] private float _targetTime; // 넘어지는데 걸리는 시간
     [Header("카메라 진동")]
     [SerializeField] private CinemachineImpulseSource _thisCinemachineImpulseSource;
     [Header("이펙트")]
     public GameObject myVFX;
+    [Header("공격 판정 온오프")]
+    [SerializeField] private Punch _punch;
 
 
     void Damaged()
@@ -78,5 +80,15 @@ public class CharacterAnimationVoice : MonoBehaviour
         VFX.transform.localScale = new Vector3(2, 2, 1);
 
         Destroy(VFX, 2.0f);
+    }
+
+    void AttackStart()
+    {
+        _punch.setAttackReady();
+    }
+
+    void AttackEnd()
+    {
+        _punch.setAttackExit();
     }
 }

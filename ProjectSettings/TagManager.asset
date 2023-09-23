@@ -8,6 +8,8 @@ TagManager:
   - UIMaster
   - ComponentList
   - CharacterComponentSlot
+  - Missile
+  - monster
   layers:
   - Default
   - TransparentFX
