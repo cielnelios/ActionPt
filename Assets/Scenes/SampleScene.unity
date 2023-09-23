@@ -160,7 +160,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 10, y: -10}
-  m_SizeDelta: {x: 150, y: 60}
+  m_SizeDelta: {x: 180, y: 110}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &73371544
 MonoBehaviour:
@@ -975,7 +975,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u2191\u2193\u2190\u2192: Move\\nSpace: Jump"
+  m_text: "\u2191\u2193\u2190\u2192: Move\\nSpace: Jump\\nL click: Attack\\nI: EffectTest"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6b2200700c81c1549a06a7d6e24346b3, type: 2}
   m_sharedMaterial: {fileID: 1792662748625513313, guid: 6b2200700c81c1549a06a7d6e24346b3, type: 2}
@@ -1184,6 +1184,7 @@ MonoBehaviour:
   _angle: 0
   _targetTime: 0
   _thisCinemachineImpulseSource: {fileID: 0}
+  myVFX: {fileID: 0}
 --- !u!1 &1121966359 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5443893454052793057, guid: e35ed10d84d43824897c7725c0484540, type: 3}
@@ -1756,6 +1757,7 @@ MonoBehaviour:
   _angle: -90
   _targetTime: 0.05
   _thisCinemachineImpulseSource: {fileID: 1909046429}
+  myVFX: {fileID: 195466, guid: 56c3274d2f9ec214ab584a80b5ce2d6d, type: 3}
 --- !u!95 &1909046428 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5443893454052793056, guid: e35ed10d84d43824897c7725c0484540, type: 3}

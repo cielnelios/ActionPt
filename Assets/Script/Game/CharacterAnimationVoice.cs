@@ -12,6 +12,8 @@ public class CharacterAnimationVoice : MonoBehaviour
     [SerializeField] private float _targetTime; // 넘어지는데 걸리는 시간
     [Header("카메라 진동")]
     [SerializeField] private CinemachineImpulseSource _thisCinemachineImpulseSource;
+    [Header("이펙트")]
+    public GameObject myVFX;
 
 
     void Damaged()
@@ -67,6 +69,14 @@ public class CharacterAnimationVoice : MonoBehaviour
 
     void Effect()
     {
-        return;
+        Transform _thisTransform = this.gameObject.transform;
+        GameObject VFX = Instantiate(myVFX, _thisTransform) as GameObject;
+        VFX.transform.SetParent(_thisTransform, true);
+
+        VFX.transform.rotation = Quaternion.Euler(90, 0, 0);
+        VFX.transform.localPosition = new Vector3(0, 1, 0);
+        VFX.transform.localScale = new Vector3(2, 2, 1);
+
+        Destroy(VFX, 2.0f);
     }
 }

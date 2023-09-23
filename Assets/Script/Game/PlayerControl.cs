@@ -69,7 +69,6 @@ public class PlayerControl : MonoBehaviour
     //인벤토리 열기
     public void OnInventory(InputAction.CallbackContext context)
     {
-        Debug.Log("i");
         if (context.action.phase == InputActionPhase.Performed)
         {
             _enemyAnimator.SetTrigger("Damaged");
