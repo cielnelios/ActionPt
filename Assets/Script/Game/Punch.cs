@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Punch : MonoBehaviour
 {
-    private bool isAttack = false;
     private List<GameObject> attackedObjectList = new List<GameObject>();
 
     public void setAttackReady()
